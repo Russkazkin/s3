@@ -1,0 +1,6 @@
+---
+-   name: Set Up
+    hosts: all
+    remote_user: root
+    roles:
+      - swap

@@ -1,0 +1,16 @@
+---
+-   name: Add authorized key
+    hosts: all
+    remote_user: root
+    tasks:
+      - name: Create deploy user
+        user:
+          name: deploy
+          password: '!'
+          groups:
+            - docker
+          state: present
+      - name: Add user authorized key
+        authorized_key:
+          user: deploy
+          key: "{{ lookup('file', '~/.ssh/id_mywebdev.pub') }}"
