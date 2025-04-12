@@ -1,0 +1,6 @@
+.idea/
+
+### Ansible template
+*.retry
+/provisioning/hosts.yml
+
