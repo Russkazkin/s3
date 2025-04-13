@@ -1,0 +1,17 @@
+services:
+  s3:
+    image: minio/minio
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: storage_app
+      MINIO_ROOT_PASSWORD_FILE: storage_secret
+    secrets:
+      - backup_aws_secret_access_key
+    volumes:
+      - /nfs/s3:/data
+    command: server /data --console-address ":9001"
+volumes:
+  s3:
