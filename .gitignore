@@ -3,4 +3,4 @@
 ### Ansible template
 *.retry
 /provisioning/hosts.yml
-/docker/secrets/
+/docker/secrets/aws_secret_access_key
